@@ -1,0 +1,9 @@
+{
+	"name": "edir",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "20524b8f-d975-4cd4-9b41-7c6ed2a1a7af",
+		"tenantId": "12580162-10ee-4c84-8c8a-607ffe7b4cad"
+	}
+}
