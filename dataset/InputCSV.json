@@ -1,0 +1,72 @@
+{
+	"name": "InputCSV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageEdircsv",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "edir.csv",
+				"container": "edircsvfile"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Id",
+				"type": "String"
+			},
+			{
+				"name": "First name",
+				"type": "String"
+			},
+			{
+				"name": "Last name",
+				"type": "String"
+			},
+			{
+				"name": "Registration Fee",
+				"type": "String"
+			},
+			{
+				"name": "Annual Fee",
+				"type": "String"
+			},
+			{
+				"name": "Emergency Fee",
+				"type": "String"
+			},
+			{
+				"name": "Payments Given",
+				"type": "String"
+			},
+			{
+				"name": "Notes",
+				"type": "String"
+			},
+			{
+				"name": "Email",
+				"type": "String"
+			},
+			{
+				"name": "Date",
+				"type": "String"
+			},
+			{
+				"name": "Status",
+				"type": "String"
+			},
+			{
+				"name": "Mobile",
+				"type": "String"
+			}
+		]
+	}
+}
