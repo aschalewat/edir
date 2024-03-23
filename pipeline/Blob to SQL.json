@@ -73,30 +73,6 @@
 							},
 							{
 								"source": {
-									"name": "Registration Fee",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "registration_fee_paid",
-									"type": "Boolean",
-									"physicalType": "bit"
-								}
-							},
-							{
-								"source": {
-									"name": "Annual Fee",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "annual_fee_paid",
-									"type": "Boolean",
-									"physicalType": "bit"
-								}
-							},
-							{
-								"source": {
 									"name": "Email",
 									"type": "String",
 									"physicalType": "String"
@@ -133,18 +109,6 @@
 							},
 							{
 								"source": {
-									"name": "Date",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "membership_date",
-									"type": "DateTime",
-									"physicalType": "date"
-								}
-							},
-							{
-								"source": {
 									"name": "Notes",
 									"type": "String",
 									"physicalType": "String"
@@ -170,6 +134,40 @@
 					}
 				],
 				"outputs": [
+					{
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy data3",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Copy data2",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
 					{
 						"referenceName": "AzureSqlTable1",
 						"type": "DatasetReference"
