@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "edir.csv",
+				"fileName": "edir1.csv",
 				"container": "edircsvfile"
 			},
 			"columnDelimiter": ",",
