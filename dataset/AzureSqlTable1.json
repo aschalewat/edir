@@ -1,0 +1,58 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "first_name",
+				"type": "varchar"
+			},
+			{
+				"name": "last_name",
+				"type": "varchar"
+			},
+			{
+				"name": "registration_fee_paid",
+				"type": "bit"
+			},
+			{
+				"name": "annual_fee_paid",
+				"type": "bit"
+			},
+			{
+				"name": "email",
+				"type": "varchar"
+			},
+			{
+				"name": "mobile",
+				"type": "varchar"
+			},
+			{
+				"name": "family_status",
+				"type": "varchar"
+			},
+			{
+				"name": "membership_date",
+				"type": "date"
+			},
+			{
+				"name": "notes",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "membership"
+		}
+	}
+}
