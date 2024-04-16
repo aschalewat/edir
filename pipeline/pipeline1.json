@@ -51,7 +51,7 @@
 							},
 							{
 								"source": {
-									"name": "First name",
+									"name": "Last name",
 									"type": "String",
 									"physicalType": "String"
 								},
