@@ -1,0 +1,63 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "select1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          id as integer,",
+				"          first_name as string,",
+				"          last_name as string,",
+				"          registration_fee_paid as boolean,",
+				"          annual_fee_paid as boolean,",
+				"          email as string,",
+				"          mobile as string,",
+				"          family_status as string,",
+				"          membership_date as date,",
+				"          notes as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source1",
+				"source1 select(mapColumn(",
+				"          id,",
+				"          first_name,",
+				"          last_name,",
+				"          registration_fee_paid,",
+				"          annual_fee_paid,",
+				"          email,",
+				"          mobile,",
+				"          family_status,",
+				"          membership_date,",
+				"          notes",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}
